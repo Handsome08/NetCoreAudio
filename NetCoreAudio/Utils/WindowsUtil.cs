@@ -8,6 +8,12 @@ namespace NetCoreAudio.Utils
 {
     internal static class WindowsUtil
     {
+        [DllImport("kernel32.dll", CharSet = CharSet.Auto)]
+        internal static extern int GetShortPathName(
+            [MarshalAs(UnmanagedType.LPTStr)] string path,
+            [MarshalAs(UnmanagedType.LPTStr)] StringBuilder shortPath,
+            int shortPathLength);
+        
         [DllImport("winmm.dll")]
         private static extern int mciSendString(
             string command,

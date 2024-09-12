@@ -23,6 +23,7 @@ namespace NetCoreAudio.Players
         {
             FileUtil.ClearTempFiles();
             _fileName = $"\"{FileUtil.CheckFileToPlay(fileName)}\"";
+            Debug.WriteLine($"actual file to play: {_fileName}");
             _playbackTimer = new Timer
             {
                 AutoReset = false
